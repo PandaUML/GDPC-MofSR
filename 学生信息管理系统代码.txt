@@ -1,0 +1,55 @@
+CREATE DATABASE SIMS; --SIMS：Student Information Management System（学生信息管理系统）
+
+CREATE TABLE Student --学生表
+(
+Sno INT PRIMARY KEY NOT NULL,
+Sname VARCHAR(10) NOT NULL,
+Ssex BIT,
+Sage INT,
+Sdept CHAR(10),
+Sclass INT,
+Birth DATE,
+Jion DATE
+)
+
+CREATE TABLE Course --课程表
+(
+Cno INT PRIMARY KEY NOT NULL,
+Cname VARCHAR(10) NOT NULL,
+Score INT 
+)
+
+CREATE TABLE Result --成绩表
+(
+Sno INT PRIMARY KEY NOT NULL,
+Cno INT NTO NULL,
+Grade SMALLINT,
+FOREIGN KEY(Sno) REFERENCES Student(Sno),
+FOREIGN KEY(Cno) REFERENCES Course(Cno)
+)
+
+CREATE TABLE Attendence --考勤表
+(
+Sno INT PRIMARY KEY NOT NULL,
+Cno INT NOT NULL,
+Ralate DATE,
+State CHAR(10),
+FOREIGN KEY(Sno) REFERENCES Student(Sno),
+FOREIGN KEY(Cno) REFERENCES Course(Cno) 
+)
+
+CREATE TABLE Class --班级表
+(
+Bno INT PRIMARY KEY NOT NULL,
+Sdept CHAR(20),
+Rs INT,
+Iname VARCHAR(20)
+)
+
+CREATE TABLE Teacher --教师表
+(
+Tno INT PRIMARY KEY NOT NULL,
+Tname VARCHAR(10) NOT NULL,
+Tsex BIT,
+Tage INT
+)
